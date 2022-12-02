@@ -11,6 +11,7 @@
   <!-- Main Stylesheet & Scripts -->
   <link rel="stylesheet" href="assets/styles/global.css" />
   <script src="assets/scripts/speechSynth.js" type="module"></script>
+  <script src="https://unpkg.com/launchdarkly-js-client-sdk@2"></script>
 </head>
 
 <body>
@@ -32,6 +33,42 @@
       <button>Press to Talk</button>
     </section>
   </main>
+  <script>
+    // Set up the user properties. This user should appear on your LaunchDarkly users dashboard
+    // soon after you run the demo.
+    var user = {
+      key: makeid(10),
+    };
+
+    function makeid(length) {
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+    console.log(user.key)
+
+
+
+    // Create a new LDClient instance with your environment-specific SDK key
+    var ldclient = LDClient.initialize('638942ef4997e611f206bb7c', user);
+
+    function render() {
+      var flagValue = ldclient.variation('speech-synthesizer-font', false);
+      if(flagValue){
+        var body = document.getElementsByTagName("body")
+        body[0].classList.add("style")
+      }
+
+      console.log("SDK successfully connected! The value of speech-synthesizer-font is " + flagValue + " for " + user.key)
+    }
+
+    ldclient.on('ready', render);
+    ldclient.on('change', render);
+  </script>
 </body>
 
 </html>

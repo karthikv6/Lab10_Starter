@@ -1,8 +1,6 @@
 /* style.css */
 
-* {
-  font-family: sans-serif;
-}
+
 
 body {
   align-items: center;
@@ -29,6 +27,10 @@ h2 {
   font-size: 2rem;
   margin: 0;
   text-align: center;
+}
+
+body.style{
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 body>header {

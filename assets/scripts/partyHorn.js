@@ -6,6 +6,8 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   bindListeners();
+  let x = document.getElementsByTagName("script")
+  console.log(x[3])
 }
 
 function bindListeners() {

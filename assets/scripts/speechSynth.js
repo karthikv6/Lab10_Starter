@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
   setTimeout(() => populateVoices(), 50);
   bindListeners();
+  
 }
 
 function populateVoices() {
