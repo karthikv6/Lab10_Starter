@@ -5,7 +5,7 @@ https://cse110-lab10-karthikv6.canny.io
 
 ## Party horn 
 ### link- 
-https://karthikv6.github.io/Lab10_Starter/
+https://karthikv6.github.io/Lab10_Starter/index.html
 
 ## Speech Synth 
 ### feature-
